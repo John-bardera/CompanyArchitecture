@@ -25,7 +25,7 @@
       }
     }
   },
-  "agents": { $include: "./agents.json"},
+  "agents": { $include: "./agents.json" },
   "bindings": [
     {
       "agentId": "discord-interface",
@@ -64,7 +64,7 @@
       "token": "${DISCORD_BOT_TOKEN}",
       "groupPolicy": "allowlist",
       "guilds": {
-        "1375882809188548808": {
+        "${DISCORD_GUILD_ID}": {
           "requireMention": false,
           "users": [
             "${DISCORD_USER_ID}"
@@ -77,7 +77,7 @@
               "users": [
                 "${DISCORD_USER_ID}"
               ],
-              "includeThreadStarter": true,
+	      "includeThreadStarter": false,
               "autoThread": true
             }
           }

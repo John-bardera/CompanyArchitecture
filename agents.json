@@ -14,7 +14,7 @@
         "alias": "TrinityLarge"
       }
     },
-    "workspace": "/home/john/.openclaw/workspace-value-orchestrator",
+    "workspace": "/home/john/.openclaw/workspace",
     "compaction": {
       "mode": "safeguard"
     },
@@ -39,19 +39,10 @@
   },
   "list": [
     {
-      "id": "discord-interface",
-      "workspace": "/home/john/.openclaw/workspace-discord-interface",
-      "model": "openrouter/arcee-ai/trinity-large-preview:free",
-      "subagents": {
-        "allowAgents": [
-          "value-orchestrator"
-        ]
-      }
-    },
-    {
       "id": "value-orchestrator",
       "workspace": "/home/john/.openclaw/workspace-value-orchestrator",
       "model": "zai/glm-4.7",
+      "think": "high",
       "subagents": {
         "allowAgents": [
           "algorithmic-architect",
@@ -64,22 +55,36 @@
     {
       "id": "algorithmic-architect",
       "workspace": "/home/john/.openclaw/workspace-algorithmic-architect",
+      "think": "high",
       "model": "zai/glm-4.7"
     },
     {
       "id": "cognitive-designer",
       "workspace": "/home/john/.openclaw/workspace-cognitive-designer",
+      "think": "high",
       "model": "zai/glm-4.7"
     },
     {
       "id": "strategic-catalyst",
       "workspace": "/home/john/.openclaw/workspace-strategic-catalyst",
+      "think": "high",
       "model": "zai/glm-4.7"
     },
     {
       "id": "adaptive-operator",
       "workspace": "/home/john/.openclaw/workspace-adaptive-operator",
+      "think": "high",
       "model": "zai/glm-4.7"
+    },
+    {
+      "id": "discord-interface",
+      "workspace": "/home/john/.openclaw/workspace-discord-interface",
+      "model": "openrouter/arcee-ai/trinity-large-preview:free",
+      "subagents": {
+        "allowAgents": [
+          "value-orchestrator"
+        ]
+      }
     }
   ]
 }
