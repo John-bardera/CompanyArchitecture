@@ -64,7 +64,7 @@
       "token": "${DISCORD_BOT_TOKEN}",
       "groupPolicy": "allowlist",
       "guilds": {
-        "${DISCORD_GUILD_ID}": {
+        "1375882809188548808": {
           "requireMention": false,
           "users": [
             "${DISCORD_USER_ID}"
