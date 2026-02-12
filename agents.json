@@ -1,0 +1,85 @@
+{
+  "defaults": {
+    "model": {
+      "primary": "zai/glm-4.7"
+    },
+    "models": {
+      "zai/glm-4.7": {
+        "alias": "GLM"
+      },
+      "ollama/deepcoder:14b": {
+        "alias": "DeepCoder"
+      },
+      "openrouter/arcee-ai/trinity-large-preview:free": {
+        "alias": "TrinityLarge"
+      }
+    },
+    "workspace": "/home/john/.openclaw/workspace-value-orchestrator",
+    "compaction": {
+      "mode": "safeguard"
+    },
+    "maxConcurrent": 4,
+    "subagents": {
+      "maxConcurrent": 8
+    },
+    "sandbox": {
+      "mode": "non-main",
+      "workspaceAccess": "rw",
+      "scope": "session",
+      "docker": {
+        "image": "my-openclaw-sandbox",
+        "network": "host",
+        "binds": [
+          "/var/run/docker.sock:/var/run/docker.sock",
+          "/home/john/programming:/projects:rw",
+          "/home/john/.gitconfig:/root/.gitconfig:ro"
+        ]
+      }
+    }
+  },
+  "list": [
+    {
+      "id": "discord-interface",
+      "workspace": "/home/john/.openclaw/workspace-discord-interface",
+      "model": "openrouter/arcee-ai/trinity-large-preview:free",
+      "subagents": {
+        "allowAgents": [
+          "value-orchestrator"
+        ]
+      }
+    },
+    {
+      "id": "value-orchestrator",
+      "workspace": "/home/john/.openclaw/workspace-value-orchestrator",
+      "model": "zai/glm-4.7",
+      "subagents": {
+        "allowAgents": [
+          "algorithmic-architect",
+          "cognitive-designer",
+          "strategic-catalyst",
+          "adaptive-operator"
+        ]
+      }
+    },
+    {
+      "id": "algorithmic-architect",
+      "workspace": "/home/john/.openclaw/workspace-algorithmic-architect",
+      "model": "zai/glm-4.7"
+    },
+    {
+      "id": "cognitive-designer",
+      "workspace": "/home/john/.openclaw/workspace-cognitive-designer",
+      "model": "zai/glm-4.7"
+    },
+    {
+      "id": "strategic-catalyst",
+      "workspace": "/home/john/.openclaw/workspace-strategic-catalyst",
+      "model": "zai/glm-4.7"
+    },
+    {
+      "id": "adaptive-operator",
+      "workspace": "/home/john/.openclaw/workspace-adaptive-operator",
+      "model": "zai/glm-4.7"
+    }
+  ]
+}
