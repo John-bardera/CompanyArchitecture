@@ -1,1 +1,0 @@
-Discord Interface workspace to bridge messages to Value Orchestrator.
